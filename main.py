@@ -35,6 +35,8 @@ for page in contacts_list_new:
 
 
 # 3) объединить все дублирующиеся записи о человеке в одну.
+phone_dict = {x[0]: x[1:] for x in contacts_list_new2}
+pprint(phone_dict)
 
 
 
