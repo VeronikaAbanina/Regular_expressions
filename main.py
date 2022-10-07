@@ -1,6 +1,6 @@
 from pprint import pprint
-# читаем адресную книгу в формате CSV в список contacts_list
 import csv
+
 with open("phonebook_raw.csv", encoding='utf-8') as f:
   rows = csv.reader(f, delimiter=",")
   contacts_list = list(rows)
@@ -41,10 +41,13 @@ for x in contacts_list_new2:
     phone_dict[key] = x
   else:
     phone_dict[key] = [i[0] if i[0] else i[1] for i in zip(phone_dict[key], x)]
-pprint(phone_dict)
+#pprint(phone_dict)
+
+t = list(phone_dict.items())
+pprint(t)
 
 
 # TODO 2: сохраните получившиеся данные в другой файл
-with open("phonebook.csv", "w") as f:
+with open("phonebook.csv", "w", encoding='utf-8') as f:
   datawriter = csv.writer(f, delimiter=',')
-  datawriter.writerows(phone_dict)
+  datawriter.writerows(t)
